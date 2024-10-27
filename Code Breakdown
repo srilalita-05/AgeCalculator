@@ -1,0 +1,38 @@
+Code Breakdown
+
+    Imports:
+        java.time.LocalDate: Used to represent dates without time zones.
+        java.time.Period: Used to calculate the period between two dates.
+        java.time.format.DateTimeFormatter: Helps in formatting dates according to a specified pattern.
+        java.util.Scanner: Allows reading of user inputs.
+
+    Main Class: AgeCalculator
+        Main Method:
+            A Scanner instance captures user input.
+            The user is presented with two options:
+                Calculate age based on date of birth.
+                Estimate date of birth from age in years.
+            Based on the user’s choice, either calculateAge or calculateDOBFromAge method is called.
+
+    calculateAge Method:
+        Prompts the user to input their date of birth in dd-MM-yyyy format.
+        A DateTimeFormatter is defined to parse the input date.
+        The input string is converted to a LocalDate object.
+        If the input date is in the future, an error message is shown.
+        Otherwise, the age is calculated as the Period between the input date and the current date, giving years, months, and days, which are then displayed to the user.
+        Error handling is implemented to catch invalid date formats.
+
+    calculateDOBFromAge Method:
+        Asks the user for their age in years.
+        The LocalDate.now() represents the current date, and the age in years is subtracted from this date to estimate the date of birth.
+        The approximate date of birth is displayed in dd-MM-yyyy format.
+
+Sample Program Execution
+
+    If the user chooses option 1:
+        The program calculates and displays the exact age in years, months, and days.
+        Input Example: 01-01-2000 -> Output: "Your age is X years, Y months, and Z days."
+
+    If the user chooses option 2:
+        The program estimates a possible birth date by subtracting the input age from the current year.
+        Input Example: 25 -> Output: "Your approximate date of birth could be around: DD-MM-YYYY."
